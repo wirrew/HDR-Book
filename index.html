@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HDR Book</title>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+            <div id="logo">
+                <img src="images/HDR-LOGO-RGB.png">
+            </div>
+
+            <div id="areaButtons">
+                <button class="disabled">Admin</button>
+                <button class="selected">Crew</button>
+            </div>
+
+            <div id="loginForm">
+                <form name="loginForm">
+                    <div>Username</div>
+                    <input type="text" name="username" id="inputUsername"
+                           placeholder="e-mail / username" 
+                           onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = 'e-mail / username'"
+                           class="textField">
+                    <br>
+                    <div>Password</div>
+                    <input 
+                           type="password" name="password" id="inputPassword" 
+                           placeholder="password"
+                           onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = 'password'"
+                           class="textField">
+                    <br>
+                </form>
+                <button id="submitBtn" class="disabled" onmouseup="redirectToTable()">Login</button>
+            </div>
+        </div>
+
+        <footer>
+            <div id="logoBottom"><img src="images/HDR-LOGO-RGB.png" alt=""></div>
+            <div id="infoBottom">Extra information can be provided here.</div>
+        </footer>
+
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript">
+
+            function validateForm() {
+                if ($('#inputUsername').val().length >= 4 && $('#inputPassword').val().length >= 4) {
+                    $('#submitBtn').prop('disabled', false);
+                    $('#submitBtn').removeClass('disabled');
+                    $('#submitBtn').addClass('enabled');
+                } else {
+                    $('#submitBtn').removeClass('enabled');
+                    $('#submitBtn').prop('disabled', true);
+                }
+            }
+            $(document).ready(function(){
+                validateForm();
+                $('#inputUsername, #inputPassword').keyup(function(){
+                    validateForm();
+                });
+            });
+
+            function redirectToTable() {
+                window.location = 'table.html';
+            }
+
+        </script>
+
+    </body>
+</html>

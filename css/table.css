@@ -1,0 +1,177 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body { font-size: 14px; }
+
+#wrapper {
+    min-width: 900px;
+    max-width: 1200px;
+    top: 32px;
+}
+#logo { text-align: center; }
+#logo img { width: 100px; animation: fadeInScale 1s; }
+
+#menu {
+    width: 100%; height: 60px;
+    margin-bottom: 12px;
+    background: hsl(0, 0%, 12%);
+}
+#menu:before {
+    position: absolute;
+    top: -8px;
+    display: block;
+    content: "";
+    width: 100%; height: 4px;
+    background: #009bbb;
+}
+#menu img {
+    float: left;
+    margin-left: 20px;
+    margin-top: 8px;
+    height: 50px;
+}
+#menu #invoiceInfo {
+    float: left;
+    display: inline-block;
+    font-size: 9px;
+    text-align: left;
+    opacity: 0.4;
+}
+#menu #invoiceInfo ul {
+    display: inline-block;
+    padding-left: 24px;
+}
+
+/* #region Action Buttons */
+.actionButtons {
+    float: right;
+    margin-top: 16px;
+    margin-right: 12px;
+}
+.actionButtons > div {
+    display: inline-block;
+    padding: 6px 8px;
+    background: #333;
+    opacity: 0.2;
+    transition: 120ms;
+    /*cursor: pointer;*/
+}
+@media screen and (min-width: 768px) {
+    .actionButtons > div:hover {
+        opacity: 0.5;
+        filter: brightness(1.12);
+    }
+    .actionButtons > div:last-child:hover {
+        background: #ff0000;
+        opacity: 0.8;
+    }
+}
+.actionButtons > div:active {
+        filter: brightness(0.8);
+        transform: scale(0.98);
+    }
+#menu .actionButtons > div:nth-child(2) { display: none; }
+/* #endregion Action Buttons */
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0) translateY(500%); }
+    to { opacity: 1; transform: scale(1) translateY(0%); }
+}
+@keyframes fadeInScaleNew {
+    from { opacity: 0; transform: translateY(200%) scale(0.8); }
+    to { opacity: 1; transform: translateY(0%) scale(1); }
+}
+table {
+    width: 100%;
+    margin-bottom: 40px;
+    border-spacing: 0 2px;
+    white-space: nowrap;
+}
+table thead:after {
+    display: block;
+    content: "";
+    height: 0px;
+}
+table tbody {  }
+table thead tr td, table tbody tr td {
+    width: auto; height: 10px;
+    padding: 6px 12px;
+    background: hsl(0, 0%, 14%);
+    transition: 200ms;
+    text-align: center;
+}
+table thead tr:first-child td {
+    background: #009bbb;
+}
+table tbody tr { transition: 120ms;  animation: fadeInScaleNew 500ms; }
+table tbody tr:hover {  }
+table tbody tr:hover td { background: hsl(0, 0%, 20%); }
+table tbody td:first-child,
+table tbody td:last-child {
+    text-align: center;
+    cursor: pointer;
+}
+table tbody td:first-child:hover,
+table tbody td:last-child:hover {
+    color: #009bbb;
+}
+table tbody a, table a:visited { color: hsl(12, 100%, 50%) !important; }
+table tbody a:hover { color: hsl(12, 100%, 68%) !important; }
+
+a, a:visited, a:active { color: #ebebeb; transition: 120ms; }
+a:hover { color: #009bbb; }
+
+table #weekday { text-transform: uppercase; }
+table tbody tr.yellow td { background: hsl(50, 50%, 50%); }
+table tbody tr.red td { background: hsl(0, 50%, 50%); opacity: 0.333; }
+
+@keyframes fadeInOverlay {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+#infoOverlay {
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 400px;
+    background: hsl(0, 0%, 12%);
+    z-index: 11;
+    animation: fadeInOverlay 200ms;
+}
+#infoOverlayCover {
+    display: none;
+    position: absolute;
+    left: 0; top: 0;
+    content: "";
+    width: 100%; height: 100%;
+    background: hsla(0, 0%, 0%, 0.8);
+    z-index: 10;
+    animation: fadeIn 200ms;
+}
+#infoOverlay .actionButtons {
+    margin-top: 12px;
+}
+
+@media screen and (max-width: 768px) {
+    #wrapper { top: 24px; min-width: inherit; width: 95%; }
+    #menu, #menu:before { margin: 0; }
+    #menu img { margin-left: 6px; height: 40px; }
+    #menu #invoiceInfo { display: none; }
+    #menu .actionButtons { margin-top: 8px; margin-right: 6px; }
+    #menu .actionButtons div { font-size: 1.2em; }
+    #menu .actionButtons div:nth-child(2) { display: inline-block; }
+    #menu .actionButtons div:last-child { display: none; }
+    #infoOverlay { width: 95%; }
+    #infoBottom { font-size: 0.6em; }
+
+    table { display: block; font-size: 11px; }
+    table thead tr td, table tbody tr td {
+        padding: 4px;
+    }
+    table td:nth-child(4), table td:nth-child(7), table td:nth-child(8) {
+        display: none;
+    }
+}

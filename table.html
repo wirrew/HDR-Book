@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HDR Book</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/table.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+
+            <div id="menu">
+                <img src="images/HDR-BOOK-CREW.png">
+                
+                <div id="invoiceInfo">
+                    <ul>
+                        Fakturaadress:
+                        <li>HD Resources Sweden AB</li>
+                        <li>Positionen 129</li>
+                        <li>115 41 Stockholm</li>
+                        <li>faktura@hdresources.se</li>
+                    </ul>
+                </div>
+
+                <div class="actionButtons">
+                    <div onmouseup="clearTable();">
+                        <i class="fa fa-refresh"></i>
+                    </div>
+                    <div>
+                        <i class="fa fa-navicon"></i>
+                    </div>
+                    <div onmouseup="signOut();">
+                        <i class="fa fa-sign-out"></i>
+                    </div>
+                </div>
+            </div>
+
+            <table id="table" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td>Date</td>
+                        <td>Production</td>
+                        <td>Function</td>
+                        <td>Location</td>
+                        <td>Calltime Crew</td>
+                        <td>Broadcast Time<br></td>
+                        <td>OB Unit</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    
+                </tbody>
+            </table>
+
+
+            <div id="logo">
+                <img src="images/HDR-LOGO-RGB.png">
+            </div>
+
+        </div>
+
+
+        <div id="infoOverlay">
+
+            <div class="actionButtons">
+                <div onmouseup="infoOverlayHide();">
+                    <i class="fa fa-close fa-lg"></i>
+                </div>
+            </div>
+
+        </div>
+        <div id="infoOverlayCover"></div>
+
+        <footer>
+            <!--<div id="logoBottom"><img src="images/HDR-LOGO-RGB.png" alt=""></div>-->
+            <div id="infoBottom">Extra information can be provided here.</div>
+        </footer>
+
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript">
+
+            var count = 0;
+            function insertTableRows() {
+                setTimeout(function(){
+                    $('#tableBody').append($('<tr>').load('tableBodyInstance.html'));
+                    count++;
+                    console.log(count);
+                    if (count < 12) {
+                        insertTableRows();
+                    }
+                },25);
+            }
+
+            window.onload = $('#logo').css('display', 'none');
+            setTimeout(function(){
+                insertTableRows();
+                $('#logo').css('display', 'block');
+            },500);
+            
+            function clearTable () {
+                $('#tableBody').html(null);
+                console.log('Table Cleared!');
+                $('#logo').css('display', 'none');
+                setTimeout(function(){
+                    count = 0;
+                    insertTableRows();
+                    
+                    $('#logo').css('display', 'block');
+                },500);
+            }
+            
+            function tableRowExpand (e) {
+                if (e.style.height == '100px') {
+                    $(e).css('height', '10px');
+                    $(e).html('<i class="fa fa-plus-square"></i>');
+                } else {
+                    $(e).css('height', '100px');
+                    $(e).html('<i class="fa fa-minus-square"></i>');
+                    console.log('Expand');    
+                }
+            }
+            
+            function infoOverlayShow () {
+                $('#infoOverlayCover').css('display', 'block');
+                $('#infoOverlay').css('display', 'block');
+            }
+            
+            function infoOverlayHide () {
+                $('#infoOverlayCover').css('display', 'none');
+                $('#infoOverlay').css('display', 'none');
+            }
+            
+            function signOut () {
+                window.location = 'index.html';
+            }
+
+        </script>
+
+    </body>
+</html>

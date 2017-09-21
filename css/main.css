@@ -1,0 +1,135 @@
+@font-face {
+    font-family: "FontAwesome";
+    src: url('../fonts/fontawesome-webfont.woff') format('woff');
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body {
+    font-family: sans-serif;
+    text-align: center;
+    color: #ebebeb;
+    background: hsl(0, 0%, 12%);
+}
+
+#wrapper {
+    width: 256px;
+    position: relative;
+    left: 50%; top: 50px;
+    transform: translateX(-50%);
+}
+
+#logo img { width: 150px; }
+
+#areaButtons { margin-top: 24px; margin-bottom: 80px; }
+#areaButtons button, button {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: inherit;
+    background: #333;
+    border: none;
+    transition: 120ms;
+}
+@media screen and (min-width: 768px) {
+    #areaButtons button:hover, button:hover { filter: brightness(1.2); }
+}
+@media screen and (min-width: 768px) {
+    #areaButtons button:active, button:active { filter: brightness(0.92); }
+}
+#areaButtons button.disabled { filter: none; opacity: 0.2; }
+#areaButtons button.selected{ background: #009bbb; opacity: 1; }
+
+#loginForm form {
+    margin-top: 20px;
+    text-align: center;
+}
+#loginForm form div {
+    display: none;
+    margin-top: 12px;
+    font-weight: 100;
+    text-align: center;
+    text-transform: inherit;
+}
+#loginForm form .textField {
+    width: 100%;
+    margin: 6px 0;
+    padding: 6px;
+    text-align: center;
+    outline: none;
+    border: none;
+    background: hsl(0, 0%, 75%);
+    transition: 120ms;
+}
+#loginForm form .textField:focus { background: hsl(0, 0%, 92%); }
+#loginForm form .textField::placeholder { opacity: 0.8; }
+#loginForm form #submitBtn, #submitBtn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 14px;
+    font-size: 16px;
+    text-align: center;
+    opacity: 0.2;
+}
+#loginForm form #submitBtn.disabled, #submitBtn.disabled { filter: none; }
+#loginForm form #submitBtn.enabled, #submitBtn.enabled { background: #009bbb; opacity: 1; }
+
+footer {
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%; height: auto;
+    padding-bottom: 24px;
+    text-align: center;
+}
+#logoBottom {
+    display: none;
+    transition: 200ms;
+}
+#logoBottom img {
+    height: 150px;
+    transition: 200ms;
+}
+#infoBottom {
+    margin-top: 24px;
+    font-size: 0.8em;
+    opacity: 0.4;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+    #wrapper { width: 80%; }
+    #areaButtons { margin: 0; }
+    #loginForm form div { font-size: 1em; }
+    #loginForm form .textField {
+        padding: 12px;
+        font-size: 1em;
+    }
+    #loginForm form #submitBtn {
+        width: 66%;
+        font-size: 1em;
+    }
+    #logo { display: none; }
+    #logoBottom { display: inline-block; }
+    #infoBottom { font-size: 0.6em; }
+}
+@media screen and (max-height: 500px) {
+    #logoBottom img { height: 100px; }
+}
+@media screen and (max-height: 450px) {
+    /*#logoBottom { opacity: 0; }*/
+    #logoBottom img { height: 50px; }
+}
+@media screen and (max-height: 400px) {
+    #logoBottom { opacity: 0; }
+}
