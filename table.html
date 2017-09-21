@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="actionButtons">
-                    <div onmouseup="clearTable();">
+                    <div id="btnRefresh" onmouseup="clearTable();">
                         <i class="fa fa-refresh"></i>
                     </div>
                     <div>
@@ -104,6 +104,7 @@
             },500);
             
             function clearTable () {
+                $('#btnRefresh').toggleClass('disabled');
                 $('#tableBody').html(null);
                 console.log('Table Cleared!');
                 $('#logo').css('display', 'none');
@@ -112,6 +113,7 @@
                     insertTableRows();
                     
                     $('#logo').css('display', 'block');
+                    $('#btnRefresh').toggleClass('disabled');
                 },500);
             }
             

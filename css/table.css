@@ -8,7 +8,7 @@ body { font-size: 14px; }
 #wrapper {
     min-width: 900px;
     max-width: 1200px;
-    top: 32px;
+    margin-top: 32px;
 }
 #logo { text-align: center; }
 #logo img { width: 100px; animation: fadeInScale 1s; }
@@ -70,6 +70,7 @@ body { font-size: 14px; }
         transform: scale(0.98);
     }
 #menu .actionButtons > div:nth-child(2) { display: none; }
+#menu .actionButtons .disabled { opacity: 0.2; pointer-events: none; }
 /* #endregion Action Buttons */
 
 @keyframes fadeInScale {
@@ -133,7 +134,7 @@ table tbody tr.red td { background: hsl(0, 50%, 50%); opacity: 0.333; }
     position: fixed;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px; height: 400px;
+    width: 900px; height: 600px;
     background: hsl(0, 0%, 12%);
     z-index: 11;
     animation: fadeInOverlay 200ms;
@@ -160,7 +161,7 @@ table tbody tr.red td { background: hsl(0, 50%, 50%); opacity: 0.333; }
     #menu .actionButtons { margin-top: 8px; margin-right: 6px; }
     #menu .actionButtons div { font-size: 1.2em; }
     #menu .actionButtons div:nth-child(2) { display: inline-block; }
-    #menu .actionButtons div:last-child { display: none; }
+    #menu .actionButtons div:last-child { display: inline-block; }
     #infoOverlay { width: 95%; }
     #infoBottom { font-size: 0.6em; }
 

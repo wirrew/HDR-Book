@@ -21,10 +21,9 @@ body {
 }
 
 #wrapper {
+    display: inline-block;
     width: 256px;
-    position: relative;
-    left: 50%; top: 50px;
-    transform: translateX(-50%);
+    margin-top: 50px;
 }
 
 #logo img { width: 150px; }
@@ -51,9 +50,10 @@ body {
 #areaButtons button.disabled { filter: none; opacity: 0.2; }
 #areaButtons button.selected{ background: #009bbb; opacity: 1; }
 
-#loginForm form {
+#loginForm {
+    display: inline-block;
+    width: 100%;
     margin-top: 20px;
-    text-align: center;
 }
 #loginForm form div {
     display: none;
@@ -64,7 +64,7 @@ body {
 }
 #loginForm form .textField {
     width: 100%;
-    margin: 6px 0;
+    margin-bottom: 12px;
     padding: 6px;
     text-align: center;
     outline: none;
