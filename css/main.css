@@ -29,7 +29,7 @@ body {
 
 #logo img { width: 150px; }
 
-#areaButtons { margin-top: 24px; margin-bottom: 80px; }
+#areaButtons { margin-top: 24px; overflow: hidden; }
 #areaButtons button, button {
     float: left;
     width: 50%;
