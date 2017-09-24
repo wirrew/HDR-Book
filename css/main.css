@@ -28,7 +28,7 @@ body {
 
 #logo img { width: 150px; }
 
-#areaButtons { margin-top: 24px; overflow: hidden; }
+#areaButtons { margin-top: 24px; }
 #areaButtons button, button {
     float: left;
     width: 50%;
@@ -49,6 +49,8 @@ body {
 }
 #areaButtons button.disabled { filter: none; opacity: 0.2; }
 #areaButtons button.selected{ background: #009bbb; opacity: 1; }
+
+.clearfix { display: block; clear: both; }
 
 #loginForm {
     display: inline-block;
